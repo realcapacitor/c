@@ -4,6 +4,8 @@
 
 int main(){
 
+	printf("JOINED GITHUB ON 27SEPT2020");
+
 /*
 //Array
 	int array[5]={1,2,3,4,5};//Array example
@@ -79,7 +81,6 @@ int main(){
 			printf("%c-",*(a+i));}
 */
 //Pointer to function
-
 
 
 	return 0;
