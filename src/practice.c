@@ -1,6 +1,25 @@
 #include<stdio.h>
 
+int* evens()
+	{
+		static int nums[5];
+		int even =0;
+		for(int k=0;k<5;k++)
+		{
+			nums[k]=even+=2;
+		}
+	return nums;
+	}
 
+int addup(int* a , int n)
+	{
+		int total=0;
+		for(int k=0;k<n;k++)
+		{
+			total+=a[k];
+		}
+		return total;
+	}
 
 int main(){
 
@@ -57,7 +76,7 @@ int main(){
 	//An array declaration reserves a contigeous memory addresses for its elements
 	int array[]={1,2,3,4,5}; //Array Example
 	int* b = array;			 //declaring pointer to a array we dont need to use '&' symbol
-	puts("Enter No.");
+	puts("Enter No.");		//because array name is a pointer itself to its first element
 	for(int i =0;i<5 ; i++){
 		scanf("%d",(b+i));	//modifing array using pointers
 
@@ -69,11 +88,13 @@ int main(){
 /*
 //Pointer to String
 	char hello[]="Hello world";
-	char* a=&hello;
-	printf("address of hello is a = %x\n",a);//to see the address(or declaration) of a string we
-					   //dont need to use '&' symbol
+	char* a=hello;
+	printf("address of hello is a = %x\n",a);//to see the address(or declaration) of
+											//a string we
+					   	   	   	   	   	   //dont need to use '&' symbol
 	for(int i=0;i<11;i++){
-		printf("%c-",*(a+i));		//to dereferance pointer to char we need to use * before pointer
+		printf("%c-",*(a+i));		//to dereferance pointer to char we need to use *
+		//before pointer
 		}
 	printf("\n");
 	*(a+3)='p';			//updating string using pointers
@@ -81,8 +102,28 @@ int main(){
 	for(int i=0;i<11;i++){
 			printf("%c-",*(a+i));}
 */
-//Pointer to function
+/*
+//Pointer to function(Array)
+	//an array cannot be passed by value to a function
+	//However array name is a pointer itself
+	//so passing an array name to function is enough(same as passing pointer)
+	//however while passing array to a function we need to use int* in function argument
+	//now consider we have to sum up all elements of array using addup() function
+	int array[]={9,8,7,6,5};//Array Example
+	int result=addup(array,5);//Function Call
+	printf("%d\n",result);
 
-
+//Pointer to function(Array Returning)
+	//while returning array through a function, we have to declare it as a pointer to
+	//a function
+	//now i want to return first five even nos using evens() function
+	int *a;
+	//note that when a local variable is passed out of a function it needs to be declared
+	//as a static variable
+	a=evens();
+	for(int k=0;k<5;k++){
+		printf("%d\t",a[k]);
+	}
+*/
 	return 0;
 }
