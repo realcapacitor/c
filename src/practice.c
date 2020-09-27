@@ -4,7 +4,8 @@
 
 int main(){
 
-	printf("JOINED GITHUB ON 27SEPT2020");
+	printf("JOINED GITHUB ON 27SEPT2020\n");
+	printf("Don't forget to push on github\n");
 
 /*
 //Array
