@@ -1,4 +1,5 @@
 #include<stdio.h>
+#include<string.h>
 
 int* evens()
 	{
@@ -69,7 +70,7 @@ int main(){
 //pointer to a char
 	char a='a';
 	char* b = &a;
-	printf("pointer b = %x\n&a = %x\n&b = %x\na = %c",b,&a,&b,a);
+	printf("pointer b = %x\n&a = %x\n&b = %x\na = %c",b,&a,&b,*b);
 */
 /*
 //Pointers and Array
@@ -124,6 +125,47 @@ int main(){
 	for(int k=0;k<5;k++){
 		printf("%d\t",a[k]);
 	}
+*/
+/*
+//Strings
+	//A string in c is nothing but a array of characters ending with a null character(\0)
+	//string syntax :
+	char hi[6]="Hello";
+	//in above example the The word Hello has 5 letters but in square brackets we wrote
+	//6 because at the end, after 'o' theres a null(\0) character added by the compiler
+	//but modern compilers there's no need to add that null character space
+	printf("%s\n",hi);
+	//A string can also be declared as a array of characters as follows
+	//But here in this case we need to manualy a null character at the end otherwise
+	//the compiler will think that the string is not ended and will include the characters
+	//aferthe 'd' in the same string according to its memory location
+	char w[6]={'w','o','r','l','d','\0'};
+	printf("%s\t %d %d",w,&w,&hi);
+*/
+/*
+//String_functions(#include<string.h>)
+	//1.strlen()	strlen() function is used to calculate the
+	//size(length/No. of characters)
+	//of a string. this function doesn't include the null character
+	char hi[50] ="HEllo";
+	printf("The length of hi[] is %d\n",strlen(hi));
+	//2.strcat()	strcat() function is used to concat(merge) Two strings
+	//i.e. putting 2nd string at the end of the first one
+	//but thers a condition here the size of first string must be as large as it can
+	//have both first and second string in it, the result is saved in first string
+	//here we can not leave []s empty
+	char w[]=" World";
+	strcat(hi, w);
+	printf("using strcat() : %s\n", hi);
+	//3.strcpy()	strcpy() copys second string into the first one
+	strcpy(hi ,w);
+	printf("using strcpy() : %s\n",hi);
+	//4.strlwr()	strlwr is used to convert all characters to the lower case
+//	char str[ ] = "MODIFY This String To LOwer";
+//	printf("%s\n",strlwr (str));
+	//5.strupr()	used to uppercase whole sentence
+	//6.strrev()	used to reverse whole sentence
+	//7.strcmp()	used to compare to strings
 */
 	return 0;
 }
