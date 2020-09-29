@@ -212,7 +212,8 @@ int main(){
 	fgets(hi , 20, stdin);
 	int num =atoi(hi);
 	printf("%d",num);
-	*/
+*/
+/*
 //Array of string
 	//2D array can also be used store a strings
 	// it has syntax as follows
@@ -243,6 +244,7 @@ printf("The strings in the array are :\n");
 	for(int j=0;j<3;j++){
 		printf("%s\t",w[j]);
 	}
+*/
 	return 0;
 
 }
