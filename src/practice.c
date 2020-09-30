@@ -229,7 +229,10 @@ int main(){
 					"world",
 					"Shivam"
 				};
-printf("The strings in the array are :\n");
+	//In above Example we dont need to use character pointer becuase all the square
+	//brackets arguments are defined finitely.
+	printf("The strings in the array are :\n");
+
 	for(int i=0;i<3;i++){
 		printf("%s\n",hi[i]);
 	}
@@ -241,10 +244,11 @@ printf("The strings in the array are :\n");
 	"Shivam"
 	};
 	puts("Leaving square brackets empty");
-	for(int j=0;j<3;j++){
-		printf("%s\t",w[j]);
-	}
+//	for(int j=0;j<3;j++){
+//		printf("%s\t",w[j]);
+//	}
 */
+
 	return 0;
 
 }
