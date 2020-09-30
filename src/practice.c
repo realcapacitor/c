@@ -9,7 +9,14 @@ int* evens()
 		{
 			nums[k]=even+=2;
 		}
-	return nums;
+		return nums;
+	}
+
+int addupp(int a,int b)
+	{
+		int c = a+b;
+		printf("%d\n",c);
+		return c;
 	}
 
 int addup(int* a , int n)
@@ -21,6 +28,32 @@ int addup(int* a , int n)
 		}
 		return total;
 	}
+
+int addno(int x, int y)
+	{
+		return (x+y);
+	}
+
+int subno(int x, int y)
+	{
+		return (x-y);
+	}
+
+int multno(int x, int y)
+	{
+		return (x*y);
+	}
+
+int divno(int x, int y)
+	{
+	if(y!=0){
+		return (x/y);
+			}
+			else{
+			return 0;
+				}
+	}
+
 
 int main(){
 
@@ -76,10 +109,11 @@ int main(){
 //Pointers and Array
 	//An array declaration reserves a contigeous memory addresses for its elements
 	int array[]={1,2,3,4,5}; //Array Example
-	int* b = array;			 //declaring pointer to a array we dont need to use '&' symbol
+	int* b = array;			 //declaring pointer to a array we dont need to use
+							 //'&' symbol
 	puts("Enter No.");		//because array name is a pointer itself to its first element
 	for(int i =0;i<5 ; i++){
-		scanf("%d",(b+i));	//modifing array using pointers
+		scanf("%d",(b+i));	 //modifing array using pointers
 
 	}
 	for(int j=0;j<5;j++){
@@ -137,7 +171,8 @@ int main(){
 	printf("%s\n",hi);
 	//A string can also be declared as a array of characters as follows
 	//But here in this case we need to manualy add a null character at the end otherwise
-	//the compiler will think that the string is not ended and will include the characters
+	//the compiler will think that the string is not ended and will include the
+	//characters
 	//after the 'd' in the same string according to its memory location
 	char w[6]={'w','o','r','l','d','\0'};
 	printf("%s\t %d %d",w,&w,&hi);
@@ -182,21 +217,21 @@ int main(){
 	//scanf("%s",hi);
 	printf("%s",hi);
 	//The scanf("%s") function scans string until the space is encountered.
-	//so to input a long string with spaces init we use a gets() function
+	//so to input a long string with spaces in it, we use a gets() function
 	//2.gets()
 	char w[20];
-	//gets(w);
+	gets(w);
 	printf("%s ",w);
 	//but using gets() is not safe as it can scan undefined number of characters
 	//so we use fgets() as a best alternative
-	//fgets()
+	//3.fgets()
 	char v[20];
 	fgets(v , 20, stdin);
 	printf("%s",v);
 */
 /*
 //String output
-	//there are methods of string output
+	//there are 3 methods of string output
 	//1.printf()
 	//2.puts()
 	//3.fputs()
@@ -217,8 +252,7 @@ int main(){
 //Array of string
 	//2D array can also be used store a strings
 	// it has syntax as follows
-	//to access the elements of the array we must declare it as a char pointer(*)
-	// char* hi[no of string][max no of chars among all];
+	// char hi[no of string][max no of chars among all];
 	//							 ex.	  char hi[3][6]={
 	//													"Hello",
 	//													"world",
@@ -237,7 +271,8 @@ int main(){
 		printf("%s\n",hi[i]);
 	}
 
-	//we can use other way by just leaving []s empty like below example
+	//we can use other way by just leaving []s empty like below example but
+	//to access the elements of the array we must declare it as a char pointer(*)
 	char* w[]={
 	"hello",
 	"world",
@@ -248,6 +283,44 @@ int main(){
 		printf("%s\t",w[j]);
 	}
 */
+
+//Function Pointers
+	//i.e. Pointers pointing to a Function
+	//we are pointing to a function in main() function and using it as a pointer to
+	//function to use it as a pointed function.
+	//Syntax of function in function is
+	//return_type(*name)(data_type);
+	//for ex.
+	//void(*funptr)(int);
+	//Function to pointer example
+	int(*funptr)(int , int);
+	funptr = addupp;
+
+	funptr(5,3);
+
+
+	//in above exapmple we declared *funptr as a function pointer having two arguments
+	//then in next line we assigned funptr to addupp function which adds up inputed
+	//value.
+	//Now we can use funptr as a function(addupp)
+//Array of Function Pointers
+	//We can use Array of functions Creatively to replace or use as switch/if-else
+	//statement
+	int x,y,result,choice;
+	//Now in the below line we declared an array of function pointers
+	//of strength 4
+	int (*op[4])(int ,int);
+
+	op[0]=addno;
+	op[1]=subno;
+	op[2]=multno;
+	op[3]=divno;
+	puts("Enter Any Two Numbers");
+	scanf("%d%d",&x,&y);
+	puts("enter 0 for addition, 1 for Subtractions, 2 for Multiplication, 3 for "
+			"Division");
+	scanf("%d",&choice);
+	printf("The result is %d",op[choice](x, y));
 
 	return 0;
 
