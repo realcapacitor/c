@@ -283,7 +283,7 @@ int main(){
 		printf("%s\t",w[j]);
 	}
 */
-
+/*
 //Function Pointers
 	//i.e. Pointers pointing to a Function
 	//we are pointing to a function in main() function and using it as a pointer to
@@ -310,7 +310,9 @@ int main(){
 	//Now in the below line we declared an array of function pointers
 	//of strength 4
 	int (*op[4])(int ,int);
-
+	//here the square braces declares it as a array of function pointer
+	//The asterisk(*) indicates that it is a pointer while
+	//return type int and (int , int) indiacates as it is a function declaration
 	op[0]=addno;
 	op[1]=subno;
 	op[2]=multno;
@@ -321,7 +323,29 @@ int main(){
 			"Division");
 	scanf("%d",&choice);
 	printf("The result is %d",op[choice](x, y));
+*/
+/*
+//Void Pointer
+	//The Void pointer is nowhere related to the above function pointer
+	//The speciality of function pointer is that we assign to any data type(int, float
+	// and char only)
+	//for ex.
+	void *ptr;	//we declared a void pointer
+	int a=10;
+	ptr = &a;	//assigned a int variable to the void pointer
+	int p = *((int*)ptr);//dereferanced int pointer
+	printf("void int pointer is dereferancing is %d\n",p);
 
+	float b=12.6;
+	ptr=&b;		//assigned a float varible to the void pointer
+	float q=*((float*)ptr);
+	printf("void float pointer is dereferancing is %.1f\n",q);
+
+	char c='c';
+	ptr=&c;		//assigned a char varible to the void pointer
+	char r = *((char*)ptr);
+	printf("void char pointer is dereferancing is %c\n",r);
+*/
 	return 0;
 
 }
