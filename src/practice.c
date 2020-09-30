@@ -244,9 +244,9 @@ int main(){
 	"Shivam"
 	};
 	puts("Leaving square brackets empty");
-//	for(int j=0;j<3;j++){
-//		printf("%s\t",w[j]);
-//	}
+	for(int j=0;j<3;j++){
+		printf("%s\t",w[j]);
+	}
 */
 
 	return 0;
