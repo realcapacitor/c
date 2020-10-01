@@ -54,6 +54,21 @@ int divno(int x, int y)
 				}
 	}
 
+struct heros{
+	int score ;
+	char name[40];
+	float height;
+};
+
+struct school{
+	char name[40];
+	int roll;
+};
+
+struct cross{
+	char name[40];
+	int roll;
+};
 
 int main(){
 
@@ -345,6 +360,41 @@ int main(){
 	ptr=&c;		//assigned a char varible to the void pointer
 	char r = *((char*)ptr);
 	printf("void char pointer is dereferancing is %c\n",r);
+*/
+/*
+//structures
+	//structures are the user defined data types, defined outside of the main() function
+	//structures are it can contain int float char string
+	//we can use structures as a data saving functions
+	struct heros im;//declaring variables im for struct hero
+	struct heros bm;//declaring variables bm for struct hero
+	//in the above example struct is basic data type, heros is strcture and im is var
+	sprintf(im.name,"Ironman");//Assigning literal to string
+
+	im.height=5.10;//assigning literal to float
+	im.score=10;//Assigning literal to int
+
+	sprintf(bm.name,"Batman");//Assigning literal to string
+	bm.height=5.10;//Assigning literal to float
+	bm.score=10;//Assigning literal to int
+
+	printf("Name: %s, height %.2f, score: %d\n",im.name,im.height ,im.score);
+	printf("Name: %s, height %.2f, score: %d\n",bm.name,bm.height,bm.score);
+	//Inputing value using array in structure school
+	//we can use this method but theres a condition the input should be same a respective
+	//data type(int , float , char)
+	struct school s1={"Thor",67};
+
+	struct school s2={"Hulk",64};
+
+	printf("Roll no : %d name: %s\n",s1.roll,s1.name);
+	printf("Roll no : %d name: %s\n",s2.roll,s2.name);
+	//Theres one more way to declare literals for structure varibles
+	struct cross s3 ={ .roll=10, .name="Captain America"};
+	struct cross s4 ={ .roll=11, .name="Superman"};
+
+	printf("Roll no : %d Name : %s\n",s3.roll,s3.name);
+	printf("Roll no : %d Name : %s\n",s4.roll,s4.name);
 */
 	return 0;
 
