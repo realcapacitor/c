@@ -70,6 +70,12 @@ struct cross{
 	int roll;
 };
 
+typedef struct {
+	int roll;
+	char name[30];
+} sidekick;
+
+
 int main(){
 
 	printf("JOINED GITHUB ON 27SEPT2020\n");
@@ -395,6 +401,19 @@ int main(){
 
 	printf("Roll no : %d Name : %s\n",s3.roll,s3.name);
 	printf("Roll no : %d Name : %s\n",s4.roll,s4.name);
+*/
+/*
+//typedef
+	//using typedef while writing a struct prevents using struct fo revery struct
+	//variable declaration
+	//but its syntax is defferent
+	//typedef struct {//code} varable;
+	sidekick s6  ={.roll =6,.name="Spiderman"};//declared struct variables
+	sidekick s7 ={.roll=7,.name="Robin"};
+	//in the modern times typedef is widely used instad of struct
+
+	printf("Roll no : %d Name : %s\n",s6.roll,s6.name);
+	printf("Roll no : %d Name : %s\n",s7.roll,s7.name);
 */
 	return 0;
 
