@@ -75,6 +75,15 @@ typedef struct {
 	char name[30];
 } sidekick;
 
+typedef struct {
+	int x;
+	int y;
+} point;
+
+typedef struct {
+	float radius;
+	point center;
+}circle;
 
 int main(){
 
@@ -415,6 +424,26 @@ int main(){
 	printf("Roll no : %d Name : %s\n",s6.roll,s6.name);
 	printf("Roll no : %d Name : %s\n",s7.roll,s7.name);
 */
+/*
+//Structures with structures
+	//Structure can also be used in a structure as a sturct variable
+	point p;
+	p.x=3;
+	p.y=5;
+
+	circle c;
+	c.radius=4.9;
+	c.center=p;
+	printf("Circle radius is %.2f, center is at (%d, %d)\n",c.radius,c.center.x,c.center.y);
+	//struct variables above can also written as
+	circle d ={10.0,{1,8}};
+	printf("updated Circle radius is %.2f, center is at (%d, %d)\n",d.radius,d.center.x,d.center.y);
+*/
+//Pointers to structures
+
+
+
+
 	return 0;
 
 }
