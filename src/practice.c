@@ -105,6 +105,26 @@ void showStudentData(struct student *std){
 	printf("Age: %d\n",std->age);
 }
 
+typedef struct {
+	int id;
+	char title[40];
+	float hours;
+} course;//course structure with int float and a string members
+
+void update_course(course *pclass) {//we have put structure name course in the recieving end
+	strcpy(pclass->title, "C++ Fundamentals");//we can use -> with pointers but not with normal structure
+	pclass->id = 111;
+	pclass->hours = 12.30;
+}//update_course is a function that assigns the values to the memebers of course variable cs2
+//when we call function as pointer as a function parameter we send the address of the class varible of struct course
+//and update_course function accepts that value as a pointer. then assigns their values to them
+
+void display_course(course class) {
+	printf("%d\t%s\t%3.2f\n", class.id, class.title, class.hours);//here we can  not use -> attribute here we have
+	//to use a dot(.)
+}//int display_course function we send class cs2 as a normal structure variable(not a pointer)
+//and it prints the value of respective members
+
 
 
 
@@ -488,6 +508,13 @@ int main(){
 	showStudentData(&std1);
 
 	showStudentData(&std2);
+*/
+/*
+//Structures with function parameters
+	course cs2;//declaring variable : structure course Variable cs2
+		update_course(&cs2);//function call
+		//so to update values of the members we have to send as a pointer
+		display_course(cs2);//function call
 */
 
 
