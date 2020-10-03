@@ -84,6 +84,29 @@ typedef struct {
 	float radius;
 	point center;
 }circle;
+//Pointer structure(Important/Difficult part)
+//Student structure Defination
+struct student{
+	char name[50];
+	int number;
+	int age;
+};
+//Struct pointer as a function parameter(function input)
+//if we imagine what is inside std it is address of std1/2 as the input is &std1 and at function theres *std, so
+//this means we are dereferancing pointers and then navigating to members(as std->name).
+//so basicaly what is happening here is "from structure student the variable std1/2 has been
+//inputed to the showStudentData function"
+//Then inside the showStudentData function using std->name attribute we are  acquiring
+//the value of member "name" from variable "std1" of structre "student"
+void showStudentData(struct student *std){
+	printf("\nStudent:\n");
+	printf("Name: %s \n",std->name);
+	printf("Number: %d\n",std->number);
+	printf("Age: %d\n",std->age);
+}
+
+
+
 
 int main(){
 
@@ -434,14 +457,36 @@ int main(){
 	circle c;
 	c.radius=4.9;
 	c.center=p;
-	printf("Circle radius is %.2f, center is at (%d, %d)\n",c.radius,c.center.x,c.center.y);
+	printf("Circle radius is %.2f, center is at (%d, %d)\n",c.radius,c.center.x,
+	c.center.y);
 	//struct variables above can also written as
 	circle d ={10.0,{1,8}};
-	printf("updated Circle radius is %.2f, center is at (%d, %d)\n",d.radius,d.center.x,d.center.y);
+	printf("updated Circle radius is %.2f, center is at (%d, %d)\n",d.radius,d.center.x,
+	d.center.y);
 */
 //Pointers to structures
+	/*
+	just like pointer to variables pointers to structures can also
+	be defined
+	struct myStruct *struct_ptr ..................structure pointer declaration
+	defines a pointer to myStruct structure
+	struct_ptr =&struct_var; .....................assigning address to structure pointer
+	stores the address of the structure variable struct_var in pointer struct_ptr
+	struct_ptr->struct_mem; ......................Accessing value of member using pointer
+	Accesses the value of structure member struct_mem
+	The -> operator allows access to members of the struct thorugh the pointer(and can only be used with pointers)
+	*/
+	//For example.
+	//Important/Difficult
+	//New student Record creation
+	//filling student 1/2 details
+	struct student std1={"krishna",5,21};
+	struct student std2={"Arjun",12,6};
 
+	//Calling function and sending addresses of std1/2
+	showStudentData(&std1);
 
+	showStudentData(&std2);
 
 
 	return 0;
