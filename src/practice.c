@@ -125,6 +125,11 @@ void display_course(course class) {
 }//int display_course function we send class cs2 as a normal structure variable(not a pointer)
 //and it prints the value of respective members
 
+typedef struct{
+	int h;
+	int w;
+	int l;
+}box;
 
 
 
@@ -516,7 +521,17 @@ int main(){
 		//so to update values of the members we have to send as a pointer
 		display_course(cs2);//function call
 */
-
+/*
+//Array of structures
+	//An array can store any type of data type including structures
+	//So below is program of finding volume of a box
+	box boxes[3] = {{2, 6, 8}, {4, 6, 6}, {2, 6, 9}};
+	int volume;
+	for(int k=0; k<3; k++){
+		volume = boxes[k].h*boxes[k].w*boxes[k].l;
+		printf("Box %d has volume = %d\n", k+1, volume);
+	}
+*/
 
 	return 0;
 
