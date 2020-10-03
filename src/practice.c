@@ -464,6 +464,7 @@ int main(){
 	printf("updated Circle radius is %.2f, center is at (%d, %d)\n",d.radius,d.center.x,
 	d.center.y);
 */
+
 //Pointers to structures
 	/*
 	just like pointer to variables pointers to structures can also
@@ -476,7 +477,7 @@ int main(){
 	Accesses the value of structure member struct_mem
 	The -> operator allows access to members of the struct thorugh the pointer(and can only be used with pointers)
 	*/
-	//For example.
+/*	//For example.
 	//Important/Difficult
 	//New student Record creation
 	//filling student 1/2 details
@@ -487,6 +488,7 @@ int main(){
 	showStudentData(&std1);
 
 	showStudentData(&std2);
+*/
 
 
 	return 0;
