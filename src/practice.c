@@ -154,6 +154,22 @@ union valo{
 	char str[20];
 };
 
+union id{
+	int id_num;
+	char name[20];
+};
+
+void set_id(union id *item){
+	item->id_num=42;
+}
+
+void show_id(union id item){
+	printf("ID is %d\n", item.id_num);
+}
+
+union valu{
+	int int_num;
+};
 
 int main(){
 
@@ -590,11 +606,38 @@ int main(){
 	 * A union pointer is declared by using keyword union name *ptr .
 	 * Whenever you want to access members of union through use -> operator
 	 */
-	union valo info;
+/*	union valo info;
 	union valo *ptr;
 	ptr = &info;
 	ptr->int_num=65; //(*ptr).int_num is same as ptr->int_num
 	printf("The int_num is %d\n",info.int_num);
+*/
+//Unions as a fnction parameters
+	//A function can have union parameter that accept arguments by value when a copy of the union variable is all
+	//that is needed
+	//For a function to change the actual value in a union memory location, "pointer parameters" are required
+/*	union id item;
+	set_id(&item);
+	show_id(item);
+*/
+//Array of Unions(Multiple Unions in a Array)
+	/*An array can store elements of any data type, including unions.
+	With unions, it is important to keep in mind that only one member of the union can store data for each
+	array element.
+	After declaring an array of unions, an element is accessible with the index number.
+ 	The dot operator is then used to access members of the union, as in the program:
+ 	Actualy
+	 */
+/*	union valu nums[10];
+	for(int k=0; k<10 ;k++){
+		nums[k].int_num=k+1;
+	}
+	for(int j=0;j<10;j++){
+		printf("%d\t", nums[j].int_num);
+	}
+*/
+
+
 
 	return 0;
 }
