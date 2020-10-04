@@ -130,8 +130,22 @@ typedef struct{
 	int w;
 	int l;
 }box;
+union val{
+	int int_num;
+	float fl_num;
+	char str[20];
+};
 
+typedef struct{
+	char make[20];
+	int model_year;
+	int id_type; /*0 for id_num 1 for VIN*/
 
+	union{
+		int id_num;
+		char VIN[20];
+	}id;
+}vehicle;
 
 int main(){
 
@@ -530,6 +544,35 @@ int main(){
 	for(int k=0; k<3; k++){
 		volume = boxes[k].h*boxes[k].w*boxes[k].l;
 		printf("Box %d has volume = %d\n", k+1, volume);
+	}
+*/
+
+//Uninons
+	/*a union allows us to store different data types in the same memory location
+	 * It is like a structure because it has members. However, a union variabe uses the same memory location
+	 * for all of it member and only one member occupy it at a time
+	 * The union declaration uses keyword union, a union tag, and curly braces { } with the list of members.
+	 * A member can be of any data type such as int, float, array, pointers and structures
+	 * To access a union member the syntax is variable.member , here we use dot(.) operator
+	 */
+/*	union val test;
+	test.int_num=42;
+	test.fl_num=3.14;
+	printf("%d is a grabage number cause union can save 1 value at a time\n",test.int_num);
+	printf("%.2f\n", test.fl_num);
+*/
+//Structures with unions
+	/*Unions are often used within structures because a structure can have a member to keep
+	 *
+	 track of which union member stores a value. For example, in the following program, a vehicle struct uses
+	 either a vehicle identification number (VIN) or an assigned id, but not both
+	*/
+/*	vehicle car1 ={ .make="Mahindra",.model_year=2017, .id_type=1 , .id.VIN="xuv500"};
+	printf("car %s model %d id type %d ", car1.make , car1.model_year, car1.id_type );
+	if(car1.id_type==0){
+		printf("ID %d\n" ,car1.id.id_num);
+	}else{
+		printf("VIN %s\n",car1.id.VIN);
 	}
 */
 
