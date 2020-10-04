@@ -130,6 +130,7 @@ typedef struct{
 	int w;
 	int l;
 }box;
+
 union val{
 	int int_num;
 	float fl_num;
@@ -146,6 +147,13 @@ typedef struct{
 		char VIN[20];
 	}id;
 }vehicle;
+
+union valo{
+	int int_num;
+	float fl_num;
+	char str[20];
+};
+
 
 int main(){
 
@@ -576,6 +584,17 @@ int main(){
 	}
 */
 
-	return 0;
+//Working with unions
+//Pointers to Unions
+	/*A pointer to union points to the memory location of the union.
+	 * A union pointer is declared by using keyword union name *ptr .
+	 * Whenever you want to access members of union through use -> operator
+	 */
+	union valo info;
+	union valo *ptr;
+	ptr = &info;
+	ptr->int_num=65; //(*ptr).int_num is same as ptr->int_num
+	printf("The int_num is %d\n",info.int_num);
 
+	return 0;
 }
