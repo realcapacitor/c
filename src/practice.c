@@ -171,6 +171,12 @@ union valu{
 	int int_num;
 };
 
+typedef struct{
+	char name[15];
+	long num;
+}con;
+
+
 int main(){
 
 	printf("JOINED GITHUB ON 27SEPT2020\n");
@@ -216,6 +222,8 @@ int main(){
 	//to dereferance the value stored in a pointer variable we have to use *
 	//before pointer variable
 	printf("Dereferancing point *y = %d\n",*y);
+	printf("Dereferancing point *y = %d\n",*(&x));//from above example we can understand the relationship between
+	//pointer and variable and the use of Asterisk(*) and Ampersent(&) symbols
 //pointer to a char
 	char a='a';
 	char* b = &a;
@@ -226,21 +234,21 @@ int main(){
 	//An array declaration reserves a contigeous memory addresses for its elements
 	int array[]={1,2,3,4,5}; //Array Example
 	int* b = array;			 //declaring pointer to a array we dont need to use
-							 //'&' symbol
+							 //'&' symbol but at beginer stage for self understanding use '&' symboll
 	puts("Enter No.");		//because array name is a pointer itself to its first element
 	for(int i =0;i<5 ; i++){
 		scanf("%d",(b+i));	 //modifing array using pointers
 
 	}
 	for(int j=0;j<5;j++){
-		printf("%d",*(b+j));//accessing array using pointer
+		printf("%d\t",*(b+j));//accessing array using pointer
 	}
 */
 /*
 //Pointer to String
 	char hello[]="Hello world";
 	char* a=hello;
-	printf("address of hello is a = %x\n",a);//to see the address(or declaration) of
+	printf("address of hello is a = %x\n",a); //to see the address(or declaration) of
 											//a string we
 					   	   	   	   	   	   //dont need to use '&' symbol
 	for(int i=0;i<11;i++){
@@ -263,7 +271,7 @@ int main(){
 	int array[]={9,8,7,6,5};//Array Example
 	int result=addup(array,5);//Function Call
 	printf("%d\n",result);
-
+	//However the function recieving function should recieve an array as a pointer
 //Pointer to function(Array Returning)
 	//while returning array through a function, we have to declare it as a pointer to
 	//a function
@@ -465,7 +473,7 @@ int main(){
 /*
 //structures
 	//structures are the user defined data types, defined outside of the main() function
-	//structures are it can contain int float char string
+	//structures can contain int, float, char, string
 	//we can use structures as a data saving functions
 	struct heros im;//declaring variables im for struct hero
 	struct heros bm;//declaring variables bm for struct hero
@@ -499,7 +507,7 @@ int main(){
 */
 /*
 //typedef
-	//using typedef while writing a struct prevents using struct fo revery struct
+	//using typedef while writing a struct prevents using struct for every struct
 	//variable declaration
 	//but its syntax is defferent
 	//typedef struct {//code} varable;
@@ -637,6 +645,28 @@ int main(){
 	}
 */
 
+//Power of Pointers
+	//Creating database: Contacts
+		con c1;
+
+		char* ptrc=&c1.name;
+		long* ptri=&c1.num;
+
+
+		int v=0;
+		for(int w=0;w<120;w=w+24){
+			printf("Enter name: ");
+			scanf("%s",(ptrc+w));
+			printf("Enter num: ");
+			scanf("%ld",(ptri+v));
+			v=v+3;
+		}
+		int z=0;
+		for(int yo=0;yo<120;yo=yo+24){
+			printf("Name: %s\t",(ptrc+yo));
+			printf("Number: %ld\n",*(ptri+z));
+			z=z+3;
+		}
 
 
 	return 0;
