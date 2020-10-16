@@ -651,7 +651,7 @@ int main(){
 	//Creating database: Contacts
 		con c1;
 
-		char* ptrc=&c1.name;
+		char* ptrc=c1.name;
 		long* ptri=&c1.num;
 
 
@@ -666,7 +666,7 @@ int main(){
 		int z=0;
 		for(int yo=0;yo<120;yo=yo+24){
 			printf("Name: %s\t",(ptrc+yo));
-			printf("Number: %ld\t",ptri[z]);
+			printf("Number: %ld\n",ptri[z]);
 			//printf("Number: %ld\n",*(ptri+z));
 			z=z+3;
 		}
