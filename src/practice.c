@@ -1,5 +1,7 @@
 #include<stdio.h>
 #include<string.h>
+#include<stdlib.h>
+
 
 int* evens()
 	{
@@ -547,6 +549,7 @@ int main(){
 	struct_ptr->struct_mem; ......................Accessing value of member using pointer
 	Accesses the value of structure member struct_mem
 	The -> operator allows access to members of the struct thorugh the pointer(and can only be used with pointers)
+	or Instead if you want to use dot(.) operator you have to use it as (*struct_ptr).struct_mem;
 	*/
 /*	//For example.
 	//Important/Difficult
@@ -595,7 +598,6 @@ int main(){
 */
 //Structures with unions
 	/*Unions are often used within structures because a structure can have a member to keep
-	 *
 	 track of which union member stores a value. For example, in the following program, a vehicle struct uses
 	 either a vehicle identification number (VIN) or an assigned id, but not both
 	*/
@@ -644,7 +646,7 @@ int main(){
 		printf("%d\t", nums[j].int_num);
 	}
 */
-
+/*
 //Power of Pointers
 	//Creating database: Contacts
 		con c1;
@@ -664,9 +666,87 @@ int main(){
 		int z=0;
 		for(int yo=0;yo<120;yo=yo+24){
 			printf("Name: %s\t",(ptrc+yo));
-			printf("Number: %ld\n",*(ptri+z));
+			printf("Number: %ld\t",ptri[z]);
+			//printf("Number: %ld\n",*(ptri+z));
 			z=z+3;
 		}
+*/
+//Memory Management
+	//When you declare a variable, c automaticaly allocates space for the variable in an area of
+	//memory called stack
+
+	//1.Stack : where memory is allocated before the execution of the program by looking at variable.
+	//char = 1 byte
+	//int = 4bytes
+	//float = 4 byte
+	//long = 8 byte
+	//double = 8 byte
+	// array = size of one element * no. of element
+	// char array[10] = 10 byte
+	// int array[10] = 40 byte
+	// long array[10] = 80 byte
+
+
+	//2. Dynamic Memory Location(Heap)
+	// Is the process of allocating freeing the memory as needed(during runtime).
+	//Dynamic memory is managed with pointers that point to newly allocated blocks pf memory
+	//in an area called Heap
+
+
+	//The #include<stdlib.h> library includes the memory management functions as following.
+	//1.malloc( bytes ) : Return a pointer to a contiguous block of memory that is of size bytes
+	//at declaration part malloc function is assigned to a pointer(int* for int, char* for char)
+	//for ex.
+	// int* p = (int*)malloc(40);
+
+	//2.calloc( num_items, item_size ): Return a pointer to contiguous block of memory that has num_items items,
+	//each of size item_size bytes. Typicaly used for arrays, structures, and other derived data type.
+	//The allocated memory is initialized to 0 is the only differance between malloc and calloc
+
+	//3.realloc( ptr, bytes ) : Resizes the memory pointed to by ptr to size bytes. The newly allocated memory is
+	//not initialized.
+
+	//4.free( ptr ) : Releases the block of memory pointed to by ptr
+
+//1.malloc(size);
+/*
+	int* p = (int*)malloc(4*sizeof(int));				//16 bytes= 4 integers
+	scanf("%d",&p[0]);
+	//p[0]=9;
+	p[1] = 26;
+	printf("%d\n",p[0]);
+*///ex.
+/*
+	int n;
+	puts("Enter value for n ");
+	scanf("%d",&n);
+	int* A = malloc(n*sizeof(int));
+	for(int i=0 ; i<n ; i++){
+		A[i]=i+1;
+	}
+	for(int i=0 ; i<n ; i++){
+		printf("%d ",A[i]);
+	}
+*/
+
+
+//2.calloc(no , size);
+/*	char* s = (char*)calloc(5,sizeof(char));			//5 bytes
+	scanf("%s",s);
+
+	printf("%s\n",s);
+*/
+	int n;
+	puts("Enter value for n ");
+	scanf("%d",&n);
+	int* A = (int*)calloc(n , sizeof(int));
+	for(int i=0 ; i<n ; i++){
+		A[i]=i+1;
+	}
+	for(int i =0 ; i<n ; i++){
+		printf("%d " , A[i]);
+	}
+
 
 
 	return 0;
