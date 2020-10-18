@@ -2,6 +2,17 @@
 #include<string.h>
 #include<stdlib.h>
 
+void hello(char* name ){
+	printf("\nHello %s\n",name );
+
+
+}
+
+
+
+int Add(int a , int b){
+	return a+b;
+}
 
 int* evens()
 	{
@@ -263,6 +274,27 @@ int main(){
 	for(int i=0;i<11;i++){
 			printf("%c-",*(a+i));}
 */
+//Function pointers:
+	/*Are used to store the address of a function. which can be later used for dereferancing or accessing the function
+	the syntax for a function pointer is first write a return type same as pointed function.
+	then inside paranthesis with a asterisk type the name of the variable
+	then again in next paranthesis type argument types but it should be exactly same as of function argument types
+	int (*ptr) (int , int);
+	*/
+/*	int (*ptr) (int , int);
+	//Assigning
+	int c;
+	ptr = Add;
+	 c = ptr(5 , 6);
+	printf("%d",c);
+
+	void (*ptc)(char* );
+	ptc = hello;
+	ptc("Tom");
+*/
+
+
+
 /*
 //Pointer to function(Array)
 	//an array cannot be passed by value to a function
@@ -735,7 +767,7 @@ int main(){
 	scanf("%s",s);
 
 	printf("%s\n",s);
-*/
+*//*
 	int n;
 	puts("Enter value for n ");
 	scanf("%d",&n);
@@ -746,6 +778,7 @@ int main(){
 	for(int i =0 ; i<n ; i++){
 		printf("%d " , A[i]);
 	}
+*/
 
 
 
