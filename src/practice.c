@@ -2,6 +2,13 @@
 #include<string.h>
 #include<stdlib.h>
 
+typedef struct{
+	int* elements;
+	int size;
+	int cap;
+
+}dyn_array;
+
 void hello(char* name ){
 	printf("\nHello %s\n",name );
 
@@ -709,7 +716,7 @@ int main(){
 
 	//1.Stack : where memory is allocated before the execution of the program by looking at variable.
 	//char = 1 byte
-	//int = 4bytes
+	//int = 4 bytes
 	//float = 4 byte
 	//long = 8 byte
 	//double = 8 byte
@@ -721,7 +728,7 @@ int main(){
 
 	//2. Dynamic Memory Location(Heap)
 	// Is the process of allocating freeing the memory as needed(during runtime).
-	//Dynamic memory is managed with pointers that point to newly allocated blocks pf memory
+	//Dynamic memory is managed with pointers that point to newly allocated blocks of memory
 	//in an area called Heap
 
 
@@ -759,11 +766,11 @@ int main(){
 	for(int i=0 ; i<n ; i++){
 		printf("%d ",A[i]);
 	}
+
 */
-
-
+/*
 //2.calloc(no , size);
-/*	char* s = (char*)calloc(5,sizeof(char));			//5 bytes
+	char* s = (char*)calloc(5,sizeof(char));			//5 bytes
 	scanf("%s",s);
 
 	printf("%s\n",s);
@@ -779,6 +786,46 @@ int main(){
 		printf("%d " , A[i]);
 	}
 */
+//Space_allocating_for_String
+/*
+	char name[10]="Shivam";
+	char *a = (char*)malloc(strlen(name)+1);
+	strcpy(a,name);
+	printf("%s",a);
+*/
+/*
+//Dynamic_Arrays:
+	//Many algorithmsimplemet a dynamic array. beacause this allows the number of elements to grow as needed.
+	//Because elements are not allocated all at once, dynamic arrays typically use a structure to keep tarck of
+	//current array size, current capacity, and a pointer to the elemets , as in the following program.
+
+	dyn_array arr;
+	int i;
+
+	arr.size=0;
+	arr.elements = calloc( 1 , sizeof(*arr.elements));
+
+	arr.cap=1;		//Room for 1 element
+
+	//Expand by 5 more elements
+	arr.elements = realloc(arr.elements , (5 + arr.cap)*sizeof(*arr.elements));
+	if(arr.elements !=NULL)
+		arr.cap+=5;//Increase capacity
+
+	//add an element and increase size
+	if(arr.size < arr.cap ){
+		arr.elements[arr.size] = 50;//Add element to array
+		arr.size++;
+	}else
+		printf("Need to expand the array");
+
+	for(i=0;i<arr.cap;i++){
+		printf("Element %d: %d\n",i, arr.elements[i]);
+	}
+*/
+
+
+
 
 
 
