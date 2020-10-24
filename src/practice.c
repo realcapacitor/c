@@ -823,11 +823,100 @@ int main(){
 		printf("Element %d: %d\n",i, arr.elements[i]);
 	}
 */
+//File Handling
+	// r = read only
+	// w = Write only(content will be lost)
+	// a = Append only(content will not be lost)
+	// r+ = read and write
+	// w+ = write and read(content will be lost)
+	// a+ = read and write(content will not be lost)
+	// For binary file use b suffix ex. rb,  wb
+//Enter character using fputc("Message", File pointer);
+/*	FILE *Fpointer;
+
+	char data[30]=" Shivam Deshmukh";
+		int length=strlen(data);
+		int counter;
+
+	Fpointer = fopen("shivam.txt" , "a");
+
+	if(Fpointer == NULL)
+	{
+		printf("Unable to create the file");
+	}
+	else
+	{
+		for(counter = 0 ; counter <length ; counter++){
+			fputc(data[counter] , Fpointer);
+			printf("writting %c\n" , data[counter]);
+			}
 
 
+		printf("File opened successfully");
+		fclose(Fpointer);
+	}
+*/
+/*
+//Entering String to the file using fputs("string", FILE pointer);
+	FILE *pf;
+	char input[25];
+	pf = fopen("shivam.txt" , "a");
+
+	if(pf == NULL){
+		printf("Unable to open");
+	}else{
+		puts("enter a string");
+		gets(input);
+		fputs(input , pf);
 
 
+		printf("Data entered Successfully!");
+		fclose(pf);
+	}
+*/
+//Entering data to the file using fprintf( FILE pointer , "Format specifier , list of variables);
 
+	FILE *pf;
+	char name[30];
+	int age;
+
+	puts("Enter your name and age");
+
+	scanf("%s%d", name , &age);
+
+	pf = fopen("shivam.txt" , "a");
+
+	if(pf == NULL){
+		printf("Unable to open the file");
+	}
+	else{
+		fprintf( pf , " Name : %s\t%d\n" , name , age);
+		puts("Data written successfully");
+		fclose(pf);
+	}
+
+//Reading file using fgetc(pf);
+/*
+	FILE *pf;
+	 pf = fopen("shivam.txt" , "r");
+	 char ch;
+	 feof(pf);
+
+	 while(!feof(pf)){
+		 ch = fgetc(pf);
+		 printf("%c" ,ch);
+		 fclose(pf);
+	 }
+*/
+//Reading file using fscanf(FILE pointeter , "Format specifier" , List of address variables);
+/*	FILE *pf;
+	pf = fopen("shivam.txt" ,"r");
+	char data[15];
+	char name[15];
+	int age;
+	fscanf(pf , "%s %s %d" , data  , name , &age);
+	printf("%s %s %d",data , name ,age);
+*/
 
 	return 0;
 }
