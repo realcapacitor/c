@@ -875,7 +875,7 @@ int main(){
 	}
 */
 //Entering data to the file using fprintf( FILE pointer , "Format specifier , list of variables);
-
+/*
 	FILE *pf;
 	char name[30];
 	int age;
@@ -894,7 +894,7 @@ int main(){
 		puts("Data written successfully");
 		fclose(pf);
 	}
-
+*/
 //Reading file using fgetc(pf);
 /*
 	FILE *pf;
@@ -917,6 +917,58 @@ int main(){
 	fscanf(pf , "%s %s %d" , data  , name , &age);
 	printf("%s %s %d",data , name ,age);
 */
+
+//File handling with binary modes
+	/*
+	 * "rb" opens file for reading.
+	 * "wb" opens file for writting.
+	 * "ab" opens file for appending.
+	 * "rb+" opens file for reading and writting.
+	 * "wb+" opens file for writting and reading.
+	 * "ab+" opens file for reading, writting and appending.
+	 */
+/*
+//fwrite( ptr, item_size, num_item, fp)
+	//fwrite function writes num_items items of size item_size from pointer ptr to the file pointed by fp
+	FILE *fptr;
+	int arr[10];
+	int x[10];
+
+	for(int k=0 ; k<10 ; k++){
+		arr[k] = k;
+	}
+
+	fptr = fopen("datafile.bin" , "wb");
+	fwrite( arr , sizeof(arr[0]) , sizeof(arr) , fptr);
+	fclose(fptr);
+
+
+
+//fread( ptr, item_size, num_item, fp)
+	//Reads num_item item of size item_size from file pointed by pointer fp to the variable pointed by pointer ptr
+
+	fptr = fopen("datafile.bin"  , "rb");
+		fread( x , sizeof(arr[0]) , sizeof(arr)/sizeof(arr[0]) , fptr);
+		fclose(fptr);
+
+		for( int i =0 ; i<10 ; i++){
+			printf("%d" , x[i]);
+		}
+
+*/
+//feof() : returns 0 if the end of the file is reached successfully.
+
+
+
+
+
+
+
+
+
+
+
+
 
 	return 0;
 }
