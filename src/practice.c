@@ -2,6 +2,11 @@
 #include<string.h>
 #include<stdlib.h>
 
+typedef struct {
+	int id;
+	char name[20];
+} item;
+
 typedef struct{
 	int* elements;
 	int size;
@@ -958,6 +963,40 @@ int main(){
 */
 //feof() : returns 0 if the end of the file is reached successfully.
 
+
+//Controlling the file pointer
+	/*
+	 * There are functions  in stdio.h for controlling the location of the file pointer in a binary file.
+	 * ftell(fp) Returns a long int value corresponding to the fp file pointer position in number of bytes from the
+	 * start of the file.
+	 *
+	 * fseek( fp, num_bytes, from_pos ) Moves fp file pointer position by num_bytes bytes relative to the position
+	 * from_pos, which can be one of the following constants.
+	 * SEEK_SET start of the file.
+	 * SEEK_CUR current position.
+	 * SEEK_END end of the file.
+	 */
+
+	FILE *fptr;
+	item first, second, dummy;
+
+
+	first.id=1034;
+	strcpy(first.name , "Widget");
+	second.id = 2024;
+	strcpy(second.name , "Gadget");
+
+	fptr = fopen("info.dat" , "wb");
+	fwrite(&first, 1, sizeof(first), fptr);
+	fwrite(&second, 1 , sizeof(second) , fptr);
+	fclose(fptr);
+
+	fptr = fopen("info.dat" , "rb");
+	fseek(fptr, 1*sizeof(item) , SEEK_SET);
+	fread(&dummy, 1 , sizeof(item) , fptr);
+
+	printf("%d\t%s\n" , dummy.id, dummy.name);
+	fclose(fptr);
 
 
 
