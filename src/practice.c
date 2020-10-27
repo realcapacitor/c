@@ -1,6 +1,13 @@
 #include<stdio.h>
 #include<string.h>
 #include<stdlib.h>
+#include<math.h>
+#include<errno.h>
+
+#define RATE 0.08
+#define TERM 24
+#define PI 3.14
+#define AREA(r) (PI*r*r)
 
 typedef struct {
 	int id;
@@ -961,8 +968,6 @@ int main(){
 		}
 
 */
-//feof() : returns 0 if the end of the file is reached successfully.
-
 
 //Controlling the file pointer
 	/*
@@ -976,7 +981,7 @@ int main(){
 	 * SEEK_CUR current position.
 	 * SEEK_END end of the file.
 	 */
-
+/*
 	FILE *fptr;
 	item first, second, dummy;
 
@@ -997,15 +1002,132 @@ int main(){
 
 	printf("%d\t%s\n" , dummy.id, dummy.name);
 	fclose(fptr);
+*/
+//Exception Handling(Error Handling)
+	/*
+	 * MACROS:
+	 * 		EXIT_SUCCESS = 0;
+	 * 		EXIT_FAILURE = 1;
+	 *
+	 */
+/*
+	FILE *pf;
+	int errnum;
+	pf = fopen("NoFile.dat" , "rb");
+	if(pf == NULL){
+		errnum = errno;
+		fprintf(stderr, "Vaues of error %d\n" , errno);
+		perror("Error Printed by perror ");
+		fprintf(stderr,"Error opening file %s\n" , strerror(errnum));
+	}else{
+		fclose(pf);
+	}
+*/
+//The perror() and strerror()
+	/*
+	 * the perror Automatically prints the error present in the code. as perror("The error is : ");
+	 * strerror() gives us error name by calling its number as strerror(2);
+	 *
+	 */
+//EDOM MACRO
+	//When the domain is out of range EDOM is used.
+/*
+//ERANGE MACRO
+	//When there is range error ERANGE is used.
+	float k =-5;
+	float num = 1000;
+	float result ;
 
+	errno = 0;
+	result = sqrt(k);
+	if(errno == 0){
+		printf("%f" , result);
+	}else if(errno == EDOM){
+		fprintf(stderr , "%s\n" , strerror(errno));
+	}
 
+	errno = 0;
+	result = exp(num);
+	if(errno == 0){
+		printf("%f" , result);
+	}else if(errno == ERANGE){
+		fprintf(stderr , "%s\n" , strerror(errno));
+	}
+*/
 
+//feof() : returns 1 if the end of the file is reached successfully. and 0 if Not Reached successfully.
+/*	FILE *fp;
+	fp = fopen("hello.txt" , "r+");
+	fprintf(fp , "Hello");
+	printf("%d\n" , feof(fp));
+	rewind(fp);
+	char hello[20];
+	fscanf(fp , "%s" , hello);
+	printf("%d\t%s" , feof(fp) , hello);
+*/
 
+//Preprocessor Directive
+	/* ex.
+	 * #include Including Header files.
+	 * #define Definiing macros.
+	 * #undef Undefining macros.
+	 * #ifdef, #ifndef, #if, #else, #endif Conditional compilations.
+	 * #pragma Implementation and compiler specefic.
+	 * #error, #warning Output error or warning message.
+	 */
+//The #include directive
+	/*
+	 * The #include derivetive is used for including header files in to the program
+	 * Ex. #include<stdio.h>
+	 * stdio.h : used for input output functions.
+	 * stdlib.h : used for memory management and other utilities.
+	 * string.h : includes string related functions.
+	 * errno.h : error code number macros
+	 * math.h : common mathematical functions.
+	 * time : time and date utilities.
+	 */
+//User defined header files:
+	//user defined header files also has .h extention. but refered with in double quotation marks.
 
+//The #define Directive
+	/*
+	 * The #define directive is used for creating macros for constants based on values or expressions.
+	 * The #define directive can also be used to create function-like macros with arguments that will be
+	 * replaced by the preprocessor.
+	 * but code might become buggy.
+	 */
+/*
+	float radius = 5;
+	printf("PI = %.2f\n" , PI);
+	printf("Radius = %.2f\n", radius);
+	printf("Area of circle = %.2f" , AREA(radius));
+*/
+//Formating Preporcessor Directives
+	//The directive must start with an #
 
-
-
-
+//Predefined Macro Definations
+	/*
+	 * __DATE__ The current date as a string.
+	 * __TIME__ The current time as a string.
+	 * __FILE__ The current filename as a string.
+	 * __LINE__ The current line number as a int.
+	 * __STDC__ The 1.
+	 */
+//The #if, #else, #elif, #ifdef, #ifndef and #undef Directives.
+	/*
+	 * The #ifdef is used to check whether the macros is defined or not.
+	 * The #ifndef can read as if_not_defined.
+	 */
+	#ifdef RATE			//check whether the macros is defined or not.
+	#undef RATE			//Undefining the RATE
+	printf("Redefing the RATE\n");
+	#define RATE 0.1	//Redefining the rate
+	#else
+	#define RATE 0.068	//Redefining the rate
+	#endif				//End of #ifdef statement
+	printf("%f\t%d" , RATE , TERM);
+//#if !defined(LEVEL) is same as normal if statement but defined() function checks whether the function is defined
+	//or not.
 
 
 
