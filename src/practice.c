@@ -4,6 +4,8 @@
 #include<math.h>
 #include<errno.h>
 
+#define VAR(name , num) name##num
+#define TO_STR(x)  #x	//here x is parameter converting to the string constant
 #define RATE 0.08
 #define TERM 24
 #define PI 3.14
@@ -1118,6 +1120,7 @@ int main(){
 	 * The #ifdef is used to check whether the macros is defined or not.
 	 * The #ifndef can read as if_not_defined.
 	 */
+/*
 	#ifdef RATE			//check whether the macros is defined or not.
 	#undef RATE			//Undefining the RATE
 	printf("Redefing the RATE\n");
@@ -1128,8 +1131,21 @@ int main(){
 	printf("%f\t%d" , RATE , TERM);
 //#if !defined(LEVEL) is same as normal if statement but defined() function checks whether the function is defined
 	//or not.
+*/
 
+//The # Operator
+	/*
+	 * the #  operator tells preprocessor to convert the parameter to the string constant
+	 * While white spaces are ignored.
+	 */
+	printf("%s\n" , TO_STR(1221sd/54));
 
+//The ## Operator
+	//The ## Operator pastes two tokens together, and makes something useful outof it.
+	int x1 = 100;
+	int x2 = 200;
+	int x3 = 300;
+	printf("%d\n" , VAR( x , 3));
 
 	return 0;
 }
