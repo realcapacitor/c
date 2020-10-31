@@ -3,6 +3,7 @@
 #include<stdlib.h>
 #include<math.h>
 #include<errno.h>
+#include"shivam.h"
 
 #define VAR(name , num) name##num
 #define TO_STR(x)  #x	//here x is parameter converting to the string constant
@@ -1132,12 +1133,12 @@ int main(){
 //#if !defined(LEVEL) is same as normal if statement but defined() function checks whether the function is defined
 	//or not.
 */
-
+/*
 //The # Operator
-	/*
-	 * the #  operator tells preprocessor to convert the parameter to the string constant
-	 * While white spaces are ignored.
-	 */
+
+	 //the #  operator tells preprocessor to convert the parameter to the string constant
+	 // While white spaces are ignored.
+
 	printf("%s\n" , TO_STR(1221sd/54));
 
 //The ## Operator
@@ -1146,6 +1147,9 @@ int main(){
 	int x2 = 200;
 	int x3 = 300;
 	printf("%d\n" , VAR( x , 3));
+*/
+	shivam();
+	print("Hello World");
 
 	return 0;
 }
